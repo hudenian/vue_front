@@ -7,8 +7,8 @@
       <!--登录表单-->
       <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
         <!--用户名-->
-        <el-form-item prop="username">
-          <el-input v-model="loginForm.username" prefix-icon="el-icon-user"></el-input>
+        <el-form-item prop="name">
+          <el-input v-model="loginForm.name" prefix-icon="el-icon-user"></el-input>
         </el-form-item>
         <!--密码-->
         <el-form-item prop="password">
@@ -29,19 +29,18 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'admin',
-        password: '123456',
-        type: 1
-
+        name: 'hudenian',
+        // password: '123456',
+        password: '63d18857edfc1c16809741716e754e5e'
       },
       loginFormRules: {
-        username: [
+        name: [
           {require: true, message: '请输入用户名', trigger: 'blur'},
-          {min: 3, max: 5, message: '长度 3 到 5 个字符', trigger: 'blur'}
+          {min: 3, max: 15, message: '长度 3 到 15 个字符', trigger: 'blur'}
         ],
         password: [
           {require: true, message: '请输入登录密码', trigger: 'blur'},
-          {min: 6, max: 15, message: '长度 6 到 15 个字符', trigger: 'blur'}
+          {min: 6, max: 100, message: '长度 6 到 100 个字符', trigger: 'blur'}
         ]
       }
     }
@@ -57,9 +56,9 @@ export default {
           return;
         }
         //只取出data
-        const {data: res} = await this.$http.post('sys/user/login', this.loginForm);
+        const {data: res} = await this.$http.post('user/login', this.loginForm);
         console.log(res);
-        if (res.code === 0) {
+        if (res.code === 10000) {
           this.$message.success('login success');
           console.log("login success");
           window.sessionStorage.setItem("token",res.data.accessToken);

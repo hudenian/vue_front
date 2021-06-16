@@ -7,7 +7,7 @@ import './assets/css/global.css'
 import axios from 'axios'
 
 Vue.prototype.$http = axios
-axios.defaults.baseURL = 'http://localhost:8444/'
+axios.defaults.baseURL = 'http://localhost:4321/api/'
 //config 就是请求对象
 axios.interceptors.request.use(config =>{
     console.log(config);
