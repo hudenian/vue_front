@@ -23,13 +23,13 @@
             <!--            一级菜单模版区域-->
             <template slot="title">
               <i :class="iconsObj[item.id]"></i>
-              <span>{{ item.title }}</span>
+              <span>{{ item.name }}</span>
             </template>
             <!--            二级菜单-->
             <el-menu-item :index="subItem.url" v-for="subItem in item.children" :key="subItem.id">
               <template slot="title">
                 <i class="el-icon-menu"></i>
-                <span>{{ subItem.title }}</span>
+                <span>{{ subItem.name }}</span>
               </template>
             </el-menu-item>
           </el-submenu>
@@ -65,9 +65,9 @@ export default {
     },
     //获取所有的菜单
     async getMenuList() {
-      const {data: res} = await this.$http.get('sys/permission/tree/all')
+      const {data: res} = await this.$http.get('permission/getAllMenus')
       console.log(res);
-      if (res.code === 0) {
+      if (res.code === 10000) {
         this.menuList = res.data;
         console.log(this.menuList);
       } else {
