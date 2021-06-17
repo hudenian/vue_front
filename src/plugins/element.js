@@ -11,7 +11,9 @@ import {
     Menu,
     Submenu,
     MenuItem,
-    Main
+    Main,
+    Table,
+    TableColumn
 } from 'element-ui'
 
 Vue.use(Button)
@@ -25,4 +27,6 @@ Vue.use(Main)
 Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItem)
+Vue.use(Table)
+Vue.use(TableColumn)
 Vue.prototype.$message = Message
