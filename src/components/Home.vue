@@ -69,7 +69,6 @@
             getMenuList() {
                 getAllMenus({}, {}).then(
                     res => {
-                        debugger
                         if (res.data.code === 10000) {
                             console.log(this.menuList);
                             this.menuList = res.data.data;
