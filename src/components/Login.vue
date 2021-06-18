@@ -51,7 +51,7 @@
                 this.$refs.loginFormRef.resetFields();
             },
             login() {
-                this.$refs.loginFormRef.validate(async valid => {
+                this.$refs.loginFormRef.validate(valid => {
                     if (!valid) {
                         console.info("valid no pass");
                         return;
@@ -60,9 +60,8 @@
                     login(this.loginForm, {}).then(
                         res => {
                             if (res.data.code === 10000) {
-                                this.$message.success('login success');
-                                console.log("login success");
-                                window.sessionStorage.setItem("token", res.data.accessToken);
+                                console.log("login success:", res.data);
+                                window.sessionStorage.setItem("accessToken", res.data.data.token);
                                 this.$router.push('/home');
                             } else {
                                 this.$message.error("login fail")
@@ -73,19 +72,6 @@
                         this.$message.error("login fail")
                         console.log('login fail', err);
                     })
-
-
-                    const {data: res} = await this.$http.post('user/login', this.loginForm);
-                    console.log(res);
-                    if (res.code === 10000) {
-                        this.$message.success('login success');
-                        console.log("login success");
-                        window.sessionStorage.setItem("token", res.data.accessToken);
-                        await this.$router.push('/home');
-                    } else {
-                        this.$message.error("login fail")
-                        console.log('login fail');
-                    }
                 })
             }
         }

@@ -110,7 +110,6 @@ import {getUserList} from "@/api/api";
                     pageSize: this.pagination.pageSize,
                     name: this.searchData.name
                 }
-                debugger
                 getUserList(data).then(
                     res => {
                         if (res.data.code === 10000) {

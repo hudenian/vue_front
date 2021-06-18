@@ -13,7 +13,7 @@ axiosIns.defaults.validateStatus = function () {
 //config 就是请求对象
 axiosIns.interceptors.request.use(config => {
     console.log(config);
-    config.headers.authorization = window.sessionStorage.getItem('token');
+    config.headers.authorization = window.sessionStorage.getItem('accessToken');
     return config;
 })
 

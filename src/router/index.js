@@ -38,7 +38,7 @@ router.beforeEach((to, from, next) => {
         return next();
     }
 
-    if (!window.sessionStorage.getItem('token')) return next('/login');
+    if (!window.sessionStorage.getItem('accessToken')) return next('/login');
     next();
 })
 
