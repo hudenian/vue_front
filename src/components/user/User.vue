@@ -76,7 +76,7 @@
     </div>
 </template>
 <script>
-    import {getUserList} from "@/api/api";
+import {getUserList} from "@/api/api";
 
     export default {
         created() {
