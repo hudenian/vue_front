@@ -26,3 +26,34 @@ export function getUserList(data) {
         method: 'get'
     })
 }
+
+export function addUser(data){
+    return post({
+        url: url.USER_ADD,
+        method:'post',
+        data:data
+    })
+}
+
+export function getUserById(id){
+    return get({
+        url: url.USER_GET_BY_ID+"/"+id,
+        method: 'get'
+    })
+}
+
+export function modifyUserInfo(data){
+    return post({
+        url: url.USER_MODIFY,
+        method:'post',
+        data:data
+    })
+}
+
+export function deleteUserById(data){
+    return post({
+        url: url.USER_DELETE,
+        method:'post',
+        data:data
+    })
+}

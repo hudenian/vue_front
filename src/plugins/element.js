@@ -20,7 +20,11 @@ import {
     Row,
     Col,
     Switch,
-    Pagination
+    Pagination,
+    Dialog,
+    Radio,
+    RadioGroup,
+    MessageBox
 } from 'element-ui'
 
 Vue.use(Button)
@@ -43,4 +47,8 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Switch)
 Vue.use(Pagination)
+Vue.use(Dialog)
+Vue.use(Radio)
+Vue.use(RadioGroup)
 Vue.prototype.$message = Message
+Vue.prototype.$confirm = MessageBox.confirm
