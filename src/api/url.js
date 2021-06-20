@@ -14,4 +14,6 @@ export default {
     USER_DELETE: `user/delete`, //删除用户信息
 
     GET_ALL_MENUS: `permission/getAllMenus`, //菜单列表
+
+    GET_ALL_PERMISSIONS: `permission/getAllPermissions`, //获取所有的权限列表
 }

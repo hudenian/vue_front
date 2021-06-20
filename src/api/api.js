@@ -57,3 +57,11 @@ export function deleteUserById(data){
         data:data
     })
 }
+
+export function getAllPermissiions(data) {
+    return post({
+        url: url.GET_ALL_PERMISSIONS,
+        method: 'get',
+        data: data
+    })
+}
