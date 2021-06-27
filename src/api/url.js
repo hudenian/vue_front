@@ -16,4 +16,12 @@ export default {
     GET_ALL_MENUS: `permission/getAllMenus`, //菜单列表
 
     GET_ALL_PERMISSIONS: `permission/getAllPermissions`, //获取所有的权限列表
+
+    GET_ALL_ROLES: `role/getAllRoles`, //获取所有的角色列表
+
+    ROLE_ADD: `role/add`, //添加角色
+
+    ROLE_MODIFY: `role/modify`, //修改角色信息
+
+    ROLE_DELETE_BY_ID: `role/deleteById`, //删除角色
 }

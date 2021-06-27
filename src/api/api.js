@@ -59,9 +59,39 @@ export function deleteUserById(data){
 }
 
 export function getAllPermissiions(data) {
-    return post({
+    return get({
         url: url.GET_ALL_PERMISSIONS,
         method: 'get',
         data: data
+    })
+}
+
+export function getAllRoles(){
+    return get({
+        url: url.GET_ALL_ROLES,
+        method: 'get'
+    })
+}
+
+export function addRole(data){
+    return post({
+        url: url.ROLE_ADD,
+        method:'post',
+        data:data
+    })
+}
+
+export function modifyRoleInfo(data){
+    return post({
+        url: url.ROLE_MODIFY,
+        method:'post',
+        data:data
+    })
+}
+
+export function deleteRoleById(id){
+    return post({
+        url: url.ROLE_DELETE_BY_ID+"/"+id,
+        method:'post',
     })
 }

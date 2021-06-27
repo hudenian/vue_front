@@ -2,7 +2,7 @@
   <div>
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item><a href="/">权限管理</a></el-breadcrumb-item>
+      <el-breadcrumb-item>权限管理</el-breadcrumb-item>
       <el-breadcrumb-item>菜单权限</el-breadcrumb-item>
     </el-breadcrumb>
     <el-table
@@ -34,10 +34,16 @@
       <el-table-column
           prop="status"
           label="状态">
+        <template slot-scope="scope">
+          {{scope.row.status === 0?'锁定':'有效'}}
+        </template>
       </el-table-column>
       <el-table-column
           prop="type"
           label="菜单类型">
+        <template slot-scope="scope">
+          {{ scope.row.type ===1?'目录':'菜单'}}
+        </template>
       </el-table-column>
     </el-table>
   </div>
