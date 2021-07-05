@@ -35,14 +35,15 @@
           prop="status"
           label="状态">
         <template slot-scope="scope">
-          {{scope.row.status === 0?'锁定':'有效'}}
+          {{ scope.row.status === 0 ? '锁定' : '有效' }}
         </template>
       </el-table-column>
       <el-table-column
           prop="type"
           label="菜单类型">
         <template slot-scope="scope">
-          {{ scope.row.type ===1?'目录':'菜单'}}
+          <el-tag v-if="scope.row.type === 1">目录</el-tag>
+          <el-tag type="success" v-else>菜单</el-tag>
         </template>
       </el-table-column>
     </el-table>
@@ -50,6 +51,7 @@
 </template>
 <script>
 import {getAllPermissiions} from '@/api/api'
+
 export default {
   created() {
     this.getAllPermission();
@@ -59,17 +61,17 @@ export default {
       permissionList: [],
     }
   },
-  methods:{
-    getAllPermission(){
-      getAllPermissiions().then(res=>{
-        if(res.data.code === 10000){
+  methods: {
+    getAllPermission() {
+      getAllPermissiions().then(res => {
+        if (res.data.code === 10000) {
           console.log(res.data.data);
           this.permissionList = res.data.data;
-        }else{
+        } else {
           this.$message.error(res.data.msg);
         }
-      }).catch(err=>{
-        console.log("获取权限列表失败",err);
+      }).catch(err => {
+        console.log("获取权限列表失败", err);
       })
     }
   }
